@@ -22,6 +22,16 @@ const productSchema = new mongoose.Schema(
       type: Number,
       default: 0
     },
-  }, {timestamps: true,});
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true
+    },
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
+      required: true
+    },
+    }, {timestamps: true,});
 
 export const Product = mongoose.model("Product", productSchema);
